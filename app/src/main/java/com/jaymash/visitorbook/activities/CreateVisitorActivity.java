@@ -1,5 +1,6 @@
 package com.jaymash.visitorbook.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -84,6 +85,9 @@ public class CreateVisitorActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        Intent intent = new Intent();
+                        intent.putExtra("message", getString(R.string.created_successfully));
+                        setResult(RESULT_OK, intent);
                         finish();
                     }
                 });

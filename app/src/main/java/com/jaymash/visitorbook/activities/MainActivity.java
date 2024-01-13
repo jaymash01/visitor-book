@@ -1,10 +1,17 @@
 package com.jaymash.visitorbook.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,6 +25,39 @@ import com.jaymash.visitorbook.fragments.VisitorsFragment;
 
 public class MainActivity extends BaseActivity {
 
+    private BottomNavigationView navigationView;
+    private ActivityResultLauncher<Intent> createVisitorActivityResultLauncher;
+
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(context);
+
+        createVisitorActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == RESULT_OK) {
+                            Intent data = result.getData();
+                            String message = data.getStringExtra("message");
+                            alert(message, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    closeAlert();
+                                    Fragment fragment = getCurrentFragment();
+
+                                    if (fragment instanceof VisitorsFragment) {
+                                        ((VisitorsFragment) fragment).refresh();
+                                    } else {
+                                        navigationView.setSelectedItemId(R.id.navigation_visitors);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +66,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setUpViews() {
-        BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.nav_view);
+        navigationView = (BottomNavigationView) findViewById(R.id.nav_view);
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -68,5 +108,10 @@ public class MainActivity extends BaseActivity {
 
     public Fragment getCurrentFragment() {
         return getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+    }
+
+    public void goToCreateVisitor() {
+        Intent intent = new Intent(this, CreateVisitorActivity.class);
+        createVisitorActivityResultLauncher.launch(intent);
     }
 }

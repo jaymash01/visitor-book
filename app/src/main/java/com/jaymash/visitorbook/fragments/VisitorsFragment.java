@@ -2,7 +2,6 @@ package com.jaymash.visitorbook.fragments;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jaymash.visitorbook.R;
-import com.jaymash.visitorbook.activities.CreateVisitorActivity;
+import com.jaymash.visitorbook.activities.MainActivity;
 import com.jaymash.visitorbook.adapters.VisitorsAdapter;
 import com.jaymash.visitorbook.data.AppDatabase;
 import com.jaymash.visitorbook.data.Visitor;
@@ -80,8 +79,7 @@ public class VisitorsFragment extends Fragment {
         view.findViewById(R.id.btn_navigation_create_visitor).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, CreateVisitorActivity.class);
-                activity.startActivity(intent);
+                ((MainActivity) activity).goToCreateVisitor();
             }
         });
     }

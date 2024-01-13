@@ -29,6 +29,7 @@ abstract public class BaseActivity extends AppCompatActivity {
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         window.setAttributes(layoutParams);
         window.setBackgroundDrawableResource(android.R.color.transparent);
+        window.setWindowAnimations(R.style.DialogAnimation);
 
         ((TextView) alertDialog.findViewById(R.id.txt_message)).setText(message);
         alertDialog.findViewById(R.id.btn_okay).setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,7 @@ abstract public class BaseActivity extends AppCompatActivity {
         layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         window.setAttributes(layoutParams);
         window.setBackgroundDrawableResource(android.R.color.transparent);
+        window.setWindowAnimations(R.style.DialogAnimation);
 
         ((TextView) alertDialog.findViewById(R.id.txt_message)).setText(message);
         alertDialog.findViewById(R.id.btn_okay).setOnClickListener(onOkayButtonClickLister);

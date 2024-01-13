@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_default"
-            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginVertical="@dimen/spacing_medium"
             android:gravity="center"
             android:textAppearance="?attr/textAppearanceBodyMedium" />
 
@@ -24,14 +24,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_default"
-            android:layout_marginTop="@dimen/spacing_medium"
-            android:layout_marginBottom="@dimen/spacing_small"
-            android:gravity="center_vertical|end"
+            android:layout_marginBottom="@dimen/spacing_default"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_okay"
-                android:layout_width="80dp"
+                android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:text="@string/ok" />
 

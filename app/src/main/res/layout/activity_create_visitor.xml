@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@string/name"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayout.Outlined"
@@ -52,7 +52,7 @@
                 android:layout_marginTop="@dimen/spacing_default"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@string/phone"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayout.Outlined"
@@ -73,7 +73,7 @@
                 android:layout_marginTop="@dimen/spacing_default"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@string/where_from"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayout.Outlined"
@@ -97,7 +97,7 @@
                 android:layout_marginTop="@dimen/spacing_default"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@string/where_to"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayout.Outlined"
@@ -121,7 +121,7 @@
                 android:layout_marginTop="@dimen/spacing_default"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@string/host"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayout.Outlined"
@@ -142,7 +142,7 @@
                 android:layout_marginTop="@dimen/spacing_default"
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@string/visit_reason"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:textAppearance="?attr/textAppearanceTitleSmall" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputLayout.Outlined"
