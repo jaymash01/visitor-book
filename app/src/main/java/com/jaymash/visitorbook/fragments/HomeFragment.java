@@ -6,16 +6,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.jaymash.visitorbook.activities.MainActivity;
 import com.jaymash.visitorbook.R;
 import com.jaymash.visitorbook.data.AppDatabase;
-import com.jaymash.visitorbook.data.Visitor;
 import com.jaymash.visitorbook.utils.DateUtils;
+import com.jaymash.visitorbook.utils.NumberUtils;
 
 import java.util.Date;
 
@@ -23,7 +22,8 @@ public class HomeFragment extends Fragment {
 
     private Activity activity;
     private Context context;
-    private ProgressBar progressBar;
+
+    private TextView txtToday, txtThisWeek, txtThisMonth;
 
     public HomeFragment() {
         // required empty constructor
@@ -44,43 +44,34 @@ public class HomeFragment extends Fragment {
     }
 
     private void setUpViews(View view) {
-        //progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        txtToday = (TextView) view.findViewById(R.id.txt_today);
+        txtThisWeek = (TextView) view.findViewById(R.id.txt_this_week);
+        txtThisMonth = (TextView) view.findViewById(R.id.txt_this_month);
 
-        view.findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveVisitor();
-            }
-        });
+        loadData();
     }
 
-    private void saveVisitor() {
-        MainActivity activity1 = (MainActivity) activity;
-        AppDatabase database = AppDatabase.getInstance(activity);
+    public void loadData() {
+        String currentDate = DateUtils.formatDate(new Date(), "yyyy-MM-dd");
+        String currentWeekDate = DateUtils.formatDate(DateUtils.getStartOfCurrentWeekDate(), "yyyy-MM-dd");
+        String currentMonthDate = DateUtils.formatDate(DateUtils.getStartOfCurrentMonthDate(), "yyyy-MM-dd");
+        AppDatabase database = AppDatabase.getInstance(context);
 
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                String currentDate = DateUtils.formatDate(new Date());
-                Visitor visitor = new Visitor();
-                visitor.setName("Vina Charles");
-                visitor.setPhone("0746846585");
-                visitor.setWhereFrom("Dar es Salaam");
-                visitor.setWhereTo("Office AB13");
-                visitor.setHost("Dr. X");
-                visitor.setVisitReason("Official");
-                visitor.setVisitDate(currentDate.substring(0, 10));
-                visitor.setTimeIn(currentDate.substring(11));
-                visitor.setTimeOut(null);
-                database.visitorDao().insert(visitor);
+                int todayTotal = database.visitorDao().countWhereVisitDateFrom(currentDate);
+                int thisWeekTotal = database.visitorDao().countWhereVisitDateFrom(currentWeekDate);
+                int thisMonthTotal = database.visitorDao().countWhereVisitDateFrom(currentMonthDate);
 
-//                    activity1.runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            BottomNavigationView navigationView = activity1.getNavigationView();
-//                            navigationView.setSelectedItemId(R.id.action_monitoring);
-//                        }
-//                    });
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        txtToday.setText(NumberUtils.numberFormat(todayTotal));
+                        txtThisWeek.setText(NumberUtils.numberFormat(thisWeekTotal));
+                        txtThisMonth.setText(NumberUtils.numberFormat(thisMonthTotal));
+                    }
+                });
             }
         };
 

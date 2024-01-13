@@ -32,7 +32,7 @@ public class VisitorsFragment extends Fragment {
 
     private Activity activity;
     private Context context;
-    TextInputLayout tilSearch;
+    private TextInputLayout tilSearch;
     private TextInputEditText edtSearch;
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
@@ -85,7 +85,7 @@ public class VisitorsFragment extends Fragment {
     public void loadData(int offset) {
         isLoading = true;
         String currentDate = DateUtils.formatDate(new Date(), "yyyy-MM-dd");
-        AppDatabase database = AppDatabase.getInstance(activity);
+        AppDatabase database = AppDatabase.getInstance(context);
 
         Runnable runnable = new Runnable() {
             @Override
@@ -119,7 +119,7 @@ public class VisitorsFragment extends Fragment {
     }
 
     public void signOutVisitor(Visitor visitor) {
-        AppDatabase database = AppDatabase.getInstance(activity);
+        AppDatabase database = AppDatabase.getInstance(context);
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

@@ -73,7 +73,7 @@ public class ReportFragment extends Fragment {
 
     public void loadData(int offset) {
         isLoading = true;
-        AppDatabase database = AppDatabase.getInstance(activity);
+        AppDatabase database = AppDatabase.getInstance(context);
 
         Runnable runnable = new Runnable() {
             @Override

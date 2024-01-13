@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,13 +8,194 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/spacing_default">
+        android:paddingVertical="@dimen/spacing_default">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_save"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardView.Elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/save" />
+            android:layout_marginHorizontal="@dimen/spacing_default"
+            android:layout_marginBottom="@dimen/spacing_default">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorSecondary"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:text="@string/app_name"
+                    android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                    android:textColor="?attr/colorOnSecondary" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_default"
+            android:layout_marginVertical="@dimen/spacing_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_medium">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_default"
+                    android:background="@drawable/shape_rounded_rectangle"
+                    android:backgroundTint="?attr/colorSecondary"
+                    android:contentDescription="@string/today"
+                    android:padding="@dimen/spacing_small"
+                    android:src="@drawable/ic_users"
+                    app:tint="?attr/colorOnSecondary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/today"
+                        android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                    <TextView
+                        android:id="@+id/txt_today"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/today"
+                        android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_default"
+            android:layout_marginVertical="@dimen/spacing_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_medium">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_default"
+                    android:background="@drawable/shape_rounded_rectangle"
+                    android:backgroundTint="?attr/colorSecondary"
+                    android:contentDescription="@string/this_week"
+                    android:padding="@dimen/spacing_small"
+                    android:src="@drawable/ic_users"
+                    app:tint="?attr/colorOnSecondary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/this_week"
+                        android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                    <TextView
+                        android:id="@+id/txt_this_week"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/this_week"
+                        android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_default"
+            android:layout_marginVertical="@dimen/spacing_small">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_medium">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_default"
+                    android:background="@drawable/shape_rounded_rectangle"
+                    android:backgroundTint="?attr/colorSecondary"
+                    android:contentDescription="@string/this_month"
+                    android:padding="@dimen/spacing_small"
+                    android:src="@drawable/ic_users"
+                    app:tint="?attr/colorOnSecondary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/this_month"
+                        android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                    <TextView
+                        android:id="@+id/txt_this_month"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/this_month"
+                        android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>
