@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="primary_20">#F2F7F7</color>
+    <color name="primary_50">#E4FAF9</color>
+    <color name="primary_100">#BBF3F0</color>
+    <color name="primary_200">#8EEBE6</color>
+    <color name="primary_300">#60E2DC</color>
+    <color name="primary_400">#3EDCD5</color>
+    <color name="primary_500">#1CD6CD</color>
+    <color name="primary_600">#19D1C8</color>
+    <color name="primary_700">#14CCC1</color>
+    <color name="primary_800">#11C6BA</color>
+    <color name="primary_900">#09bcae</color>
+    <color name="primary_a20">#201CD6CD</color>
+    <color name="secondary_50">#E1E2E4</color>
+    <color name="secondary_100">#B3B6BA</color>
+    <color name="secondary_200">#81858D</color>
+    <color name="secondary_300">#4E545F</color>
+    <color name="secondary_400">#282F3C</color>
+    <color name="secondary_500">#020A1A</color>
+    <color name="secondary_600">#020917</color>
+    <color name="secondary_700">#010713</color>
+    <color name="secondary_800">#01050F</color>
+    <color name="secondary_900">#010308</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="error">#CC0000</color>
+
+    <color name="stroke_color">#1E808080</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">
+        @color/stroke_color
+    </color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+</resources>

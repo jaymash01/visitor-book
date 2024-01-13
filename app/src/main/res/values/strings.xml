@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Visitor Book</string>
+    <string name="save">Save</string>
+    <string name="search">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="end_of_results">End of results</string>
+    <string name="home">Home</string>
+    <string name="visitors">Visitors</string>
+    <string name="report">Report</string>
+    <string name="name">Name</string>
+    <string name="where_from">Where From</string>
+    <string name="where_to">Where To</string>
+    <string name="host">Host</string>
+    <string name="visit_reason">Visit Reason</string>
+    <string name="phone">Phone</string>
+    <string name="signature">Signature</string>
+    <string name="visit_date">Visit Date</string>
+    <string name="time_in">Time In</string>
+    <string name="time_out">Time Out</string>
+    <string name="confirm_sign_out_title">Confirm Sign Out</string>
+    <string name="confirm_sign_out_message">Are you sure you want to sign out this visitor?</string>
+</resources>

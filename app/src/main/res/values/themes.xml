@@ -1,0 +1,154 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.VisitorBook" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_700</item>
+        <item name="colorPrimaryVariant">@color/primary_900</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/secondary_500</item>
+        <item name="colorSecondaryVariant">@color/secondary_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:statusBarColor">@color/primary_20</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:navigationBarColor">@color/primary_20</item>
+
+        <!-- Android 12 splash screen -->
+        <item name="windowSplashScreenBackground">@color/secondary_500</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/secondary_500</item>
+
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.LabelSmall</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MediumComponent</item>
+
+        <item name="android:colorBackground">@color/primary_20</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="dividerColor">@color/stroke_color</item>
+        <item name="textInputOutlinedStyle">@style/TextInputLayout.Outlined</item>
+    </style>
+
+    <style name="Theme.SplashScreen" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:statusBarColor">@color/secondary_500</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:navigationBarColor">@color/secondary_500</item>
+    </style>
+
+    <style name="TextAppearance.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/primary_bold</item>
+    </style>
+
+    <style name="TextAppearance.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/primary_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/primary_medium</item>
+    </style>
+
+    <style name="TextAppearance.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/primary_bold</item>
+    </style>
+
+    <style name="TextAppearance.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/primary_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/primary_medium</item>
+    </style>
+
+    <style name="TextAppearance.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/primary_regular</item>
+    </style>
+
+    <style name="TextAppearance.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/primary_regular</item>
+    </style>
+
+    <style name="TextAppearance.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/primary_regular</item>
+    </style>
+
+    <style name="TextAppearance.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/primary_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/primary_medium</item>
+    </style>
+
+    <style name="TextAppearance.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/primary_regular</item>
+        <item name="android:textColor">?android:attr/textColorHint</item>
+    </style>
+
+    <style name="ShapeAppearance.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">@dimen/shape_radius_small_component</item>
+    </style>
+
+    <style name="ShapeAppearance.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">@dimen/shape_radius_medium_component</item>
+    </style>
+
+    <style name="CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="TextInputLayout.Outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="shapeAppearance">@style/ShapeAppearance.MediumComponent</item>
+        <item name="startIconTint">?android:attr/textColorHint</item>
+        <item name="endIconTint">?android:attr/textColorHint</item>
+        <item name="boxStrokeColor">@color/primary_700</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxBackgroundColor">@color/primary_a20</item>
+        <item name="hintEnabled">false</item>
+        <item name="errorIconDrawable">@drawable/ic_warning</item>
+        <item name="errorIconTint">@color/error</item>
+        <item name="errorTextColor">@color/error</item>
+    </style>
+
+    <style name="BottomNavigationView.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_a20</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">@color/stroke_color</item>
+    </style>
+
+    <style name="Divider.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">@dimen/spacing_small</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_small</item>
+    </style>
+
+    <style name="Divider.Horizontal.Dashed">
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@drawable/shape_dashed_line</item>
+        <item name="android:layerType">software</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
+    </style>
+</resources>
