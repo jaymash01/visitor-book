@@ -64,6 +64,7 @@
 
     <style name="TextAppearance.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
         <item name="fontFamily">@font/primary_bold</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="TextAppearance.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
@@ -121,6 +122,7 @@
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="boxBackgroundColor">@color/primary_a20</item>
         <item name="hintEnabled">false</item>
+        <item name="expandedHintEnabled">false</item>
         <item name="errorIconDrawable">@drawable/ic_warning</item>
         <item name="errorIconTint">@color/error</item>
         <item name="errorTextColor">@color/error</item>

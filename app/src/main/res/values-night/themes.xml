@@ -65,6 +65,7 @@
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="boxBackgroundColor">@color/secondary_500</item>
         <item name="hintEnabled">false</item>
+        <item name="expandedHintEnabled">false</item>
         <item name="errorIconDrawable">@drawable/ic_warning</item>
         <item name="errorIconTint">@color/error</item>
         <item name="errorTextColor">@color/error</item>

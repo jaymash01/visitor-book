@@ -11,6 +11,7 @@
     <string name="home">Home</string>
     <string name="visitors">Visitors</string>
     <string name="report">Report</string>
+    <string name="create_visitor">Create Visitor</string>
     <string name="name">Name</string>
     <string name="where_from">Where From</string>
     <string name="where_to">Where To</string>
@@ -23,4 +24,5 @@
     <string name="time_out">Time Out</string>
     <string name="confirm_sign_out_title">Confirm Sign Out</string>
     <string name="confirm_sign_out_message">Are you sure you want to sign out this visitor?</string>
+    <string name="all_fields_required_message">Please fill all the required fields</string>
 </resources>

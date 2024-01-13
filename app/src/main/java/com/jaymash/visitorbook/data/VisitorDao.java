@@ -16,16 +16,16 @@ public interface VisitorDao {
     @Query("SELECT * FROM visitors ORDER BY id DESC LIMIT :limit OFFSET :offset")
     public List<Visitor> getAll(int limit, int offset);
 
-    @Query("SELECT * FROM visitors WHERE name LIKE :q AND visit_date = :date AND time_out IS NULL LIMIT :limit OFFSET :offset")
+    @Query("SELECT * FROM visitors WHERE name LIKE :q AND visit_date = :date AND time_out IS NULL ORDER BY id DESC LIMIT :limit OFFSET :offset")
     public List<Visitor> getCheckedInVisitors(String q, String date, int limit, int offset);
 
-    @Query("SELECT * FROM visitors WHERE visit_date = :date LIMIT :limit OFFSET :offset")
+    @Query("SELECT * FROM visitors WHERE visit_date = :date ORDER BY id DESC LIMIT :limit OFFSET :offset")
     public List<Visitor> getWhereVisitDate(String date, int limit, int offset);
 
     @Query("SELECT COUNT(id) FROM visitors WHERE visit_date = :date")
     public int countWhereVisitDate(String date);
 
-    @Query("SELECT * FROM visitors WHERE visit_date >= :startDate LIMIT :limit OFFSET :offset")
+    @Query("SELECT * FROM visitors WHERE visit_date >= :startDate ORDER BY id DESC LIMIT :limit OFFSET :offset")
     public List<Visitor> getWhereVisitDateFrom(String startDate, int limit, int offset);
 
     @Query("SELECT COUNT(*) FROM visitors WHERE visit_date >= :startDate")
