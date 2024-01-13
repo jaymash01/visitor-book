@@ -84,9 +84,8 @@ public class VisitorsFragment extends Fragment {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-//                List<Visitor> visitors = database.visitorDao().getCheckedInVisitors("%" + searchQuery + "%",
-//                        currentDate, pageSize, offset);
-                List<Visitor> visitors = database.visitorDao().getAll(pageSize, offset);
+                List<Visitor> visitors = database.visitorDao().getCheckedInVisitors("%" + searchQuery + "%",
+                        currentDate, pageSize, offset);
                 isLoading = false;
 
                 activity.runOnUiThread(new Runnable() {

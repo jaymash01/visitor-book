@@ -63,8 +63,8 @@ public class HomeFragment extends Fragment {
             public void run() {
                 String currentDate = DateUtils.formatDate(new Date());
                 Visitor visitor = new Visitor();
-                visitor.setName("Liam Cooper");
-                visitor.setPhone("0784605179");
+                visitor.setName("Vina Charles");
+                visitor.setPhone("0746846585");
                 visitor.setWhereFrom("Dar es Salaam");
                 visitor.setWhereTo("Office AB13");
                 visitor.setHost("Dr. X");

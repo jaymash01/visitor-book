@@ -19,12 +19,14 @@ import com.jaymash.visitorbook.data.Visitor;
 import com.jaymash.visitorbook.fragments.VisitorsFragment;
 import com.jaymash.visitorbook.utils.DateUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VisitorsAdapter extends PaginationAdapter<Visitor> {
 
     private final Animation animSlideDown;
     private final Animation animRotate180;
+    private final List<Integer> expanded;
 
     public VisitorsAdapter(Activity activity, Context context, List<Visitor> dataset) {
         super(activity, context, dataset);
@@ -33,6 +35,7 @@ public class VisitorsAdapter extends PaginationAdapter<Visitor> {
 
         animSlideDown = AnimationUtils.loadAnimation(context, R.anim.slide_down);
         animRotate180 = AnimationUtils.loadAnimation(context, R.anim.rotate_180);
+        expanded = new ArrayList<>();
     }
 
     @Override
@@ -50,7 +53,7 @@ public class VisitorsAdapter extends PaginationAdapter<Visitor> {
 
         if (viewType == TYPE_ITEM) {
             ItemViewHolder holder1 = (ItemViewHolder) holder;
-            Visitor visitor = dataset.get(position);
+            Visitor visitor = dataset.get(holder.getLayoutPosition());
             String visitDate = DateUtils.formatDate(DateUtils.parseDate(visitor.getVisitDate(),
                     "yyyy-MM-dd"), "MMM dd, yyyy") + " \u00B7 " + visitor.getTimeIn().substring(0, 5);
             String timeOut = visitor.getTimeOut();
@@ -67,6 +70,10 @@ public class VisitorsAdapter extends PaginationAdapter<Visitor> {
             holder1.txtVisitReason.setText(visitor.getVisitReason());
             holder1.txtPhone.setText(visitor.getPhone());
 
+            holder1.btnToggleDetails.setRotation(0);
+            holder1.detailsContainer.setVisibility(View.GONE);
+            expanded.remove((Integer) visitor.getId());
+
             holder1.btnToggleDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -78,13 +85,15 @@ public class VisitorsAdapter extends PaginationAdapter<Visitor> {
 
                         @Override
                         public void onAnimationEnd(Animation animation) {
-                            view.setRotation(view.getRotation() + 180);
-
-                            if (holder1.detailsContainer.getVisibility() == View.GONE) {
+                            if (!expanded.contains(visitor.getId())) {
+                                view.setRotation(180);
                                 holder1.detailsContainer.setVisibility(View.VISIBLE);
                                 holder1.detailsContainer.startAnimation(animSlideDown);
+                                expanded.add(visitor.getId());
                             } else {
+                                view.setRotation(0);
                                 holder1.detailsContainer.setVisibility(View.GONE);
+                                expanded.remove((Integer) visitor.getId());
                             }
                         }
 
