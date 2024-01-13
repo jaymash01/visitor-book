@@ -93,4 +93,10 @@ public class CreateVisitorActivity extends BaseActivity {
         Thread thread = new Thread(runnable);
         thread.start();
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        getOnBackPressedDispatcher().onBackPressed();
+        return true;
+    }
 }
