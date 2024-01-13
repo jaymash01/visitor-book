@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.jaymash.visitorbook.R;
 import com.jaymash.visitorbook.adapters.VisitorsAdapter;
@@ -27,6 +28,7 @@ public class ReportFragment extends Fragment {
 
     private Activity activity;
     private Context context;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private VisitorsAdapter adapter;
@@ -55,6 +57,7 @@ public class ReportFragment extends Fragment {
     }
 
     private void setUpViews(View view) {
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(activity);
         adapter = new VisitorsAdapter(activity, context, new ArrayList<>());
@@ -64,6 +67,7 @@ public class ReportFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         setTabsListener(view);
+        setSwipeRefreshListener();
         setOnScrollListener();
     }
 
@@ -164,6 +168,16 @@ public class ReportFragment extends Fragment {
         });
 
         txtToday.callOnClick();
+    }
+
+    private void setSwipeRefreshListener() {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     private void setOnScrollListener() {

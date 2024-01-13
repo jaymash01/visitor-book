@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -33,6 +34,7 @@ public class VisitorsFragment extends Fragment {
     private Context context;
     TextInputLayout tilSearch;
     private TextInputEditText edtSearch;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private VisitorsAdapter adapter;
@@ -63,6 +65,7 @@ public class VisitorsFragment extends Fragment {
     private void setUpViews(View view) {
         edtSearch = (TextInputEditText) view.findViewById(R.id.edt_search);
         tilSearch = (TextInputLayout) edtSearch.getParent().getParent();
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(activity);
         adapter = new VisitorsAdapter(activity, context, new ArrayList<>());
@@ -72,16 +75,11 @@ public class VisitorsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        setOnClickListeners(view);
         setSearchListener();
+        setSwipeRefreshListener();
         setOnScrollListener();
         loadData(0);
-
-        view.findViewById(R.id.btn_navigation_create_visitor).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity) activity).goToCreateVisitor();
-            }
-        });
     }
 
     public void loadData(int offset) {
@@ -151,6 +149,15 @@ public class VisitorsFragment extends Fragment {
         loadData(0);
     }
 
+    private void setOnClickListeners(View view) {
+        view.findViewById(R.id.btn_navigation_create_visitor).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) activity).goToCreateVisitor();
+            }
+        });
+    }
+
     private void setSearchListener() {
         tilSearch.setEndIconOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +186,16 @@ public class VisitorsFragment extends Fragment {
         };
 
         edtSearch.addTextChangedListener(textWatcher);
+    }
+
+    private void setSwipeRefreshListener() {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     private void setOnScrollListener() {
