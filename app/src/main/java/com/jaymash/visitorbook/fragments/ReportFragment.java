@@ -3,21 +3,17 @@ package com.jaymash.visitorbook.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.jaymash.visitorbook.R;
-import com.jaymash.visitorbook.activities.MainActivity;
 import com.jaymash.visitorbook.adapters.VisitorsAdapter;
 import com.jaymash.visitorbook.data.AppDatabase;
 import com.jaymash.visitorbook.data.Visitor;
@@ -27,12 +23,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class VisitorsFragment extends Fragment {
+public class ReportFragment extends Fragment {
 
     private Activity activity;
     private Context context;
-    TextInputLayout tilSearch;
-    private TextInputEditText edtSearch;
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private VisitorsAdapter adapter;
@@ -40,9 +34,9 @@ public class VisitorsFragment extends Fragment {
     private final int pageSize = 15;
     private boolean isLoading = false;
     private boolean isLastPage = false;
-    private String searchQuery = "";
+    private String startDate = DateUtils.formatDate(new Date(), "yyyy-MM-dd");
 
-    public VisitorsFragment() {
+    public ReportFragment() {
         // required empty constructor
     }
 
@@ -51,7 +45,7 @@ public class VisitorsFragment extends Fragment {
                              Bundle savedInstanceState) {
         activity = getActivity();
         context = getContext();
-        return inflater.inflate(R.layout.fragment_visitors, container, false);
+        return inflater.inflate(R.layout.fragment_report, container, false);
     }
 
     @Override
@@ -61,39 +55,26 @@ public class VisitorsFragment extends Fragment {
     }
 
     private void setUpViews(View view) {
-        edtSearch = (TextInputEditText) view.findViewById(R.id.edt_search);
-        tilSearch = (TextInputLayout) edtSearch.getParent().getParent();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(activity);
         adapter = new VisitorsAdapter(activity, context, new ArrayList<>());
 
-        tilSearch.setEndIconVisible(false);
         adapter.add(new Visitor());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        setSearchListener();
+        setTabsListener(view);
         setOnScrollListener();
-        loadData(0);
-
-        view.findViewById(R.id.btn_navigation_create_visitor).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity) activity).goToCreateVisitor();
-            }
-        });
     }
 
     public void loadData(int offset) {
         isLoading = true;
-        String currentDate = DateUtils.formatDate(new Date(), "yyyy-MM-dd");
         AppDatabase database = AppDatabase.getInstance(activity);
 
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                List<Visitor> visitors = database.visitorDao()
-                        .getCheckedInVisitors("%" + searchQuery + "%", currentDate, pageSize, offset);
+                List<Visitor> visitors = database.visitorDao().getWhereVisitDateFrom(startDate, pageSize, offset);
                 isLoading = false;
 
                 activity.runOnUiThread(new Runnable() {
@@ -120,28 +101,6 @@ public class VisitorsFragment extends Fragment {
         thread.start();
     }
 
-    public void signOutVisitor(Visitor visitor) {
-        AppDatabase database = AppDatabase.getInstance(activity);
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                String currentTime = DateUtils.formatDate(new Date(), "HH:mm:ss");
-                visitor.setTimeOut(currentTime);
-                database.visitorDao().update(visitor);
-
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        refresh();
-                    }
-                });
-            }
-        };
-
-        Thread thread = new Thread(runnable);
-        thread.start();
-    }
-
     public void refresh() {
         isLoading = false;
         isLastPage = false;
@@ -151,34 +110,60 @@ public class VisitorsFragment extends Fragment {
         loadData(0);
     }
 
-    private void setSearchListener() {
-        tilSearch.setEndIconOnClickListener(new View.OnClickListener() {
+    private void setTabsListener(View view) {
+        TextView txtToday = (TextView) view.findViewById(R.id.txt_today);
+        TextView txtTodayActive = (TextView) view.findViewById(R.id.txt_today_active);
+        TextView txtThisWeek = (TextView) view.findViewById(R.id.txt_this_week);
+        TextView txtThisWeekActive = (TextView) view.findViewById(R.id.txt_this_week_active);
+        TextView txtThisMonth = (TextView) view.findViewById(R.id.txt_this_month);
+        TextView txtThisMonthActive = (TextView) view.findViewById(R.id.txt_this_month_active);
+
+        txtToday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edtSearch.setText("");
+                txtToday.setVisibility(View.GONE);
+                txtTodayActive.setVisibility(View.VISIBLE);
+                txtThisWeek.setVisibility(View.VISIBLE);
+                txtThisWeekActive.setVisibility(View.GONE);
+                txtThisMonth.setVisibility(View.VISIBLE);
+                txtThisMonthActive.setVisibility(View.GONE);
+
+                startDate = DateUtils.formatDate(new Date(), "yyyy-MM-dd");
+                refresh();
             }
         });
 
-        TextWatcher textWatcher = new TextWatcher() {
+        txtThisWeek.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onClick(View view) {
+                txtThisWeek.setVisibility(View.GONE);
+                txtThisWeekActive.setVisibility(View.VISIBLE);
+                txtToday.setVisibility(View.VISIBLE);
+                txtTodayActive.setVisibility(View.GONE);
+                txtThisMonth.setVisibility(View.VISIBLE);
+                txtThisMonthActive.setVisibility(View.GONE);
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                searchQuery = editable.toString();
-                tilSearch.setEndIconVisible(!searchQuery.isEmpty());
+                startDate = DateUtils.formatDate(DateUtils.getStartOfCurrentWeekDate(), "yyyy-MM-dd");
                 refresh();
             }
-        };
+        });
 
-        edtSearch.addTextChangedListener(textWatcher);
+        txtThisMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtThisMonth.setVisibility(View.GONE);
+                txtThisMonthActive.setVisibility(View.VISIBLE);
+                txtToday.setVisibility(View.VISIBLE);
+                txtTodayActive.setVisibility(View.GONE);
+                txtThisWeek.setVisibility(View.VISIBLE);
+                txtThisWeekActive.setVisibility(View.GONE);
+
+                startDate = DateUtils.formatDate(DateUtils.getStartOfCurrentMonthDate(), "yyyy-MM-dd");
+                refresh();
+            }
+        });
+
+        txtToday.callOnClick();
     }
 
     private void setOnScrollListener() {

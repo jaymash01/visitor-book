@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationBarView;
 import com.jaymash.visitorbook.R;
 import com.jaymash.visitorbook.fragments.HomeFragment;
+import com.jaymash.visitorbook.fragments.ReportFragment;
 import com.jaymash.visitorbook.fragments.VisitorsFragment;
 
 public class MainActivity extends BaseActivity {
@@ -90,7 +91,7 @@ public class MainActivity extends BaseActivity {
             fragment = new VisitorsFragment();
             tag = "VisitorsFragment";
         } else if (navigationItemId == R.id.navigation_report) {
-            fragment = new VisitorsFragment();
+            fragment = new ReportFragment();
             tag = "ReportFragment";
         }
 

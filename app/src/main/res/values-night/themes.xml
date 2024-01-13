@@ -33,6 +33,7 @@
 
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LargeComponent</item>
 
         <item name="android:colorBackground">@color/secondary_700</item>
         <item name="colorSurface">@color/secondary_500</item>
@@ -69,5 +70,30 @@
         <item name="errorIconDrawable">@drawable/ic_warning</item>
         <item name="errorIconTint">@color/error</item>
         <item name="errorTextColor">@color/error</item>
+    </style>
+
+    <style name="Tabs">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/shape_pill_outlined</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">2dp</item>
+    </style>
+
+    <style name="Tab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/shape_pill</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.TitleSmall</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Tab.Active">
+        <item name="backgroundTint">@color/primary_500</item>
+        <item name="android:background">@drawable/shape_pill</item>
     </style>
 </resources>

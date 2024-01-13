@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Theme.VisitorBook" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary_700</item>
         <item name="colorPrimaryVariant">@color/primary_900</item>
@@ -34,6 +35,7 @@
 
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LargeComponent</item>
 
         <item name="android:colorBackground">@color/primary_20</item>
         <item name="colorSurface">@color/white</item>
@@ -108,6 +110,10 @@
         <item name="cornerSize">@dimen/shape_radius_medium_component</item>
     </style>
 
+    <style name="ShapeAppearance.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">@dimen/shape_radius_large_component</item>
+    </style>
+
     <style name="CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
         <item name="cardBackgroundColor">@color/white</item>
     </style>
@@ -147,6 +153,31 @@
         <item name="android:layout_height">2dp</item>
         <item name="android:background">@drawable/shape_dashed_line</item>
         <item name="android:layerType">software</item>
+    </style>
+
+    <style name="Tabs">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/shape_pill_outlined</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">2dp</item>
+    </style>
+
+    <style name="Tab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/shape_pill</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.TitleSmall</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Tab.Active">
+        <item name="backgroundTint">@color/primary_500</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="DialogAnimation">

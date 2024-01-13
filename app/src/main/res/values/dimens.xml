@@ -5,4 +5,5 @@
     <dimen name="spacing_large">32dp</dimen>
     <dimen name="shape_radius_small_component">8dp</dimen>
     <dimen name="shape_radius_medium_component">24dp</dimen>
+    <dimen name="shape_radius_large_component">32dp</dimen>
 </resources>
