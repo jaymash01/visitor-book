@@ -31,16 +31,6 @@ public class DateUtils {
         }
     }
 
-    public static long getStartOfCurrentDayTimestamp() {
-        Date now = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(now);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        return calendar.getTime().getTime();
-    }
-
     public static Date getStartOfCurrentWeekDate() {
         Date now = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -48,8 +38,11 @@ public class DateUtils {
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
-        int i = calendar.get(Calendar.DAY_OF_WEEK) - calendar.getFirstDayOfWeek();
-        calendar.add(Calendar.DAY_OF_WEEK, -i);
+
+        while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY) {
+            calendar.add(Calendar.DAY_OF_WEEK, -1);
+        }
+
         return calendar.getTime();
     }
 
