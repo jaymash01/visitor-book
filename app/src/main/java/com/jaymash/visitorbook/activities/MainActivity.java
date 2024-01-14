@@ -26,6 +26,7 @@ import com.jaymash.visitorbook.fragments.VisitorsFragment;
 
 public class MainActivity extends BaseActivity {
 
+    private static int activeNavigationItem = R.id.navigation_home;
     private BottomNavigationView navigationView;
     private ActivityResultLauncher<Intent> createVisitorActivityResultLauncher;
 
@@ -72,12 +73,14 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 item.setChecked(true);
-                displayFragment(item.getItemId(), null);
+                int itemId = item.getItemId();
+                activeNavigationItem = itemId;
+                displayFragment(itemId, null);
                 return true;
             }
         });
 
-        navigationView.setSelectedItemId(R.id.navigation_home);
+        navigationView.setSelectedItemId(activeNavigationItem);
     }
 
     public void displayFragment(@IdRes int navigationItemId, Bundle args) {

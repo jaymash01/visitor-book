@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,12 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_default"
-            android:layout_marginBottom="@dimen/spacing_default">
+            android:layout_marginBottom="@dimen/spacing_default"
+            app:cardCornerRadius="@dimen/shape_radius_medium_component">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorSecondary"
+                android:background="@color/secondary_500"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_large">
@@ -44,40 +46,39 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            style="@style/CardView.Elevated"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_default"
-            android:layout_marginVertical="@dimen/spacing_small">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/spacing_medium">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/spacing_default"
-                    android:background="@drawable/shape_rounded_rectangle"
-                    android:backgroundTint="?attr/colorSecondary"
-                    android:contentDescription="@string/today"
-                    android:padding="@dimen/spacing_small"
-                    android:src="@drawable/ic_users"
-                    app:tint="?attr/colorOnSecondary" />
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:layout_marginVertical="@dimen/spacing_small"
+                android:layout_marginStart="@dimen/spacing_default"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_4"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/spacing_medium">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/today"
+                        android:src="@drawable/ic_users"
+                        app:tint="?attr/colorOnSurface" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/today"
                         android:textAppearance="?attr/textAppearanceLabelMedium" />
 
@@ -85,50 +86,42 @@
                         android:id="@+id/txt_today"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/today"
                         android:textAppearance="?attr/textAppearanceTitleLarge" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            style="@style/CardView.Elevated"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_default"
-            android:layout_marginVertical="@dimen/spacing_small">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/spacing_medium">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/spacing_default"
-                    android:background="@drawable/shape_rounded_rectangle"
-                    android:backgroundTint="?attr/colorSecondary"
-                    android:contentDescription="@string/this_week"
-                    android:padding="@dimen/spacing_small"
-                    android:src="@drawable/ic_users"
-                    app:tint="?attr/colorOnSecondary" />
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:layout_marginVertical="@dimen/spacing_small"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_default"
+                android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/spacing_medium">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/this_week"
+                        android:src="@drawable/ic_users"
+                        app:tint="?attr/colorOnSurface" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/this_week"
                         android:textAppearance="?attr/textAppearanceLabelMedium" />
 
@@ -136,50 +129,49 @@
                         android:id="@+id/txt_this_week"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/this_week"
                         android:textAppearance="?attr/textAppearanceTitleLarge" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            style="@style/CardView.Elevated"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_default"
-            android:layout_marginVertical="@dimen/spacing_small">
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/spacing_medium">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/spacing_default"
-                    android:background="@drawable/shape_rounded_rectangle"
-                    android:backgroundTint="?attr/colorSecondary"
-                    android:contentDescription="@string/this_month"
-                    android:padding="@dimen/spacing_small"
-                    android:src="@drawable/ic_users"
-                    app:tint="?attr/colorOnSecondary" />
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardView.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:layout_marginVertical="@dimen/spacing_small"
+                android:layout_marginStart="@dimen/spacing_default"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_3"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/spacing_medium">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/this_month"
+                        android:src="@drawable/ic_users"
+                        app:tint="?attr/colorOnSurface" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/this_month"
                         android:textAppearance="?attr/textAppearanceLabelMedium" />
 
@@ -187,15 +179,49 @@
                         android:id="@+id/txt_this_month"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/this_month"
                         android:textAppearance="?attr/textAppearanceTitleLarge" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:layout_marginVertical="@dimen/spacing_small"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_default"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:strokeColor="?attr/dividerColor">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/spacing_medium">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_navigation_create_visitor"
+                        style="@style/Widget.Material3.Button.IconButton.Filled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tooltipText="@string/create_visitor"
+                        app:icon="@drawable/ic_user_add"
+                        app:iconSize="24dp"
+                        app:iconTint="?attr/colorOnPrimary"
+                        tools:targetApi="o" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

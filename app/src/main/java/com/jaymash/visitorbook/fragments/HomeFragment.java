@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.jaymash.visitorbook.R;
+import com.jaymash.visitorbook.activities.MainActivity;
 import com.jaymash.visitorbook.data.AppDatabase;
 import com.jaymash.visitorbook.utils.DateUtils;
 import com.jaymash.visitorbook.utils.NumberUtils;
@@ -48,6 +49,7 @@ public class HomeFragment extends Fragment {
         txtThisWeek = (TextView) view.findViewById(R.id.txt_this_week);
         txtThisMonth = (TextView) view.findViewById(R.id.txt_this_month);
 
+        setOnClickListeners(view);
         loadData();
     }
 
@@ -77,5 +79,14 @@ public class HomeFragment extends Fragment {
 
         Thread thread = new Thread(runnable);
         thread.start();
+    }
+
+    private void setOnClickListeners(View view) {
+        view.findViewById(R.id.btn_navigation_create_visitor).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) activity).goToCreateVisitor();
+            }
+        });
     }
 }
