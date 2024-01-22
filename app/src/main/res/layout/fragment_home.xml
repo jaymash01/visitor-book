@@ -31,8 +31,8 @@
                     android:padding="@dimen/spacing_large">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
                         android:src="@drawable/logo" />
@@ -40,7 +40,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:layout_marginTop="@dimen/spacing_default"
                         android:text="@string/app_name"
                         android:textAppearance="?attr/textAppearanceHeadlineMedium"
                         android:textColor="?attr/colorOnSecondary" />
