@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.VisitorBook" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_500</item>
-        <item name="colorPrimaryVariant">@color/primary_700</item>
+        <item name="colorPrimary">@color/primary_700</item>
+        <item name="colorPrimaryContainer">@color/primary_700</item>
+        <item name="colorPrimaryVariant">@color/primary_900</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
 
         <item name="colorSecondary">@color/secondary_400</item>
         <item name="colorSecondaryVariant">@color/secondary_600</item>
@@ -56,11 +58,15 @@
         <item name="strokeColor">@color/stroke_color</item>
     </style>
 
+    <style name="CardView.Elevated.NoDarkOutline" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/secondary_500</item>
+    </style>
+
     <style name="TextInputLayout.Outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
         <item name="shapeAppearance">@style/ShapeAppearance.MediumComponent</item>
         <item name="startIconTint">?android:attr/textColorHint</item>
         <item name="endIconTint">?android:attr/textColorHint</item>
-        <item name="boxStrokeColor">@color/primary_500</item>
+        <item name="boxStrokeColor">@color/primary_700</item>
         <item name="boxStrokeErrorColor">@color/error</item>
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeWidthFocused">1dp</item>
@@ -93,7 +99,7 @@
     </style>
 
     <style name="Tab.Active">
-        <item name="backgroundTint">@color/primary_500</item>
+        <item name="backgroundTint">@color/primary_700</item>
         <item name="android:background">@drawable/shape_pill</item>
     </style>
 </resources>
