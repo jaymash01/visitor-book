@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jaymash.visitorbook.R;
-import com.jaymash.visitorbook.activities.MainActivity;
 import com.jaymash.visitorbook.adapters.VisitorsAdapter;
 import com.jaymash.visitorbook.data.AppDatabase;
 import com.jaymash.visitorbook.data.Visitor;
@@ -65,7 +64,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setAdapter(visitorsAdapter);
 
-        setOnClickListeners(view);
         loadData();
     }
 
@@ -105,14 +103,5 @@ public class HomeFragment extends Fragment {
 
         Thread thread = new Thread(runnable);
         thread.start();
-    }
-
-    private void setOnClickListeners(View view) {
-        view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity) activity).goToCreateVisitor();
-            }
-        });
     }
 }

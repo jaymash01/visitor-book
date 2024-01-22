@@ -78,7 +78,6 @@ abstract public class PaginationAdapter<T> extends RecyclerView.Adapter<Recycler
             ((View) footerViewHolder.progressBar.getParent()).setVisibility(View.VISIBLE);
             footerViewHolder.txtMessage.setVisibility(View.GONE);
             footerViewHolder.progressBar.setVisibility(View.VISIBLE);
-            notifyItemChanged(dataset.size() - 1);
         }
     }
 
@@ -88,7 +87,6 @@ abstract public class PaginationAdapter<T> extends RecyclerView.Adapter<Recycler
             footerViewHolder.progressBar.setVisibility(View.GONE);
             footerViewHolder.txtMessage.setVisibility(View.VISIBLE);
             footerViewHolder.txtMessage.setText(message);
-            notifyItemChanged(dataset.size() - 1);
         }
     }
 

@@ -13,6 +13,7 @@
     <string name="recent_visitors">Recent Visitors</string>
     <string name="summary">Summary</string>
     <string name="report">Report</string>
+    <string name="visitors_report">Visitors Report</string>
     <string name="create_visitor">Create Visitor</string>
     <string name="name">Name</string>
     <string name="where_from">Where From</string>
@@ -31,4 +32,6 @@
     <string name="today">Today</string>
     <string name="this_week">This Week</string>
     <string name="this_month">This Month</string>
+    <string name="export_to_pdf">Export to PDF</string>
+    <string name="general_error_message">Something went wrong</string>
 </resources>
