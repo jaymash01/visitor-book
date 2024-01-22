@@ -16,11 +16,13 @@ import com.google.android.material.button.MaterialButton;
 import com.jaymash.visitorbook.R;
 import com.jaymash.visitorbook.activities.MainActivity;
 import com.jaymash.visitorbook.data.Visitor;
+import com.jaymash.visitorbook.fragments.HomeFragment;
 import com.jaymash.visitorbook.fragments.VisitorsFragment;
 import com.jaymash.visitorbook.utils.DateUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class VisitorsAdapter extends PaginationAdapter<Visitor> {
 
@@ -62,7 +64,12 @@ public class VisitorsAdapter extends PaginationAdapter<Visitor> {
                 visitDate += " - " + timeOut.substring(0, 5);
             }
 
-            holder1.txtName.setText(visitor.getName());
+            if (fragment instanceof HomeFragment) {
+                holder1.txtName.setText(visitor.getName());
+            } else {
+                holder1.txtName.setText(String.format(Locale.US, "%d. %s", holder.getLayoutPosition() + 1, visitor.getName()));
+            }
+
             holder1.txtVisitDate.setText(visitDate);
             holder1.txtWhereFrom.setText(visitor.getWhereFrom());
             holder1.txtWhereTo.setText(visitor.getWhereTo());

@@ -16,6 +16,11 @@ import com.jaymash.visitorbook.R;
 
 import java.util.List;
 
+/**
+ * Helper class to handle infinite scroll pagination.
+ * The adapter should always have at least one item which is used as a footer to display a progress bar or message.
+ * @param <T>
+ */
 abstract public class PaginationAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     final protected static int TYPE_ITEM = 1;

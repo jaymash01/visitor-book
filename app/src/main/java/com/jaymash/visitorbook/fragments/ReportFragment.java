@@ -191,16 +191,11 @@ public class ReportFragment extends Fragment {
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
-                int visibleItemCount = layoutManager.getChildCount();
-                int totalItemCount = layoutManager.getItemCount();
-                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+                int totalItemCount = layoutManager.getItemCount() - 1;
+                int lastVisibleItemPosition = layoutManager.findLastCompletelyVisibleItemPosition();
 
-                if (!isLoading && !isLastPage) {
-                    if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount
-                            && firstVisibleItemPosition >= 0
-                            && (totalItemCount - 1) >= pageSize) {
-                        loadData(totalItemCount - 1);
-                    }
+                if (!isLoading && !isLastPage && lastVisibleItemPosition >= totalItemCount && totalItemCount >= pageSize) {
+                    loadData(totalItemCount);
                 }
             }
         };
