@@ -17,10 +17,10 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:navigationBarColor">@color/primary_20</item>
 
-        <!-- Android 12 splash screen -->
-        <item name="windowSplashScreenBackground">@color/secondary_500</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
-        <item name="windowSplashScreenIconBackgroundColor">@color/secondary_500</item>
+        <!-- Android 12+ splash screen -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/secondary_500</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_launcher</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">@android:color/transparent</item>
 
         <item name="textAppearanceHeadlineLarge">@style/TextAppearance.HeadlineLarge</item>
         <item name="textAppearanceHeadlineMedium">@style/TextAppearance.HeadlineMedium</item>
